@@ -1,34 +1,24 @@
-function addNote() {
-    let text = document.getElementById("note").value;
+let present=0;
+let absent=0;
 
-    if (text == "") {
-        return alert("Enter a note");
+function markAttendance(){
+    let name=document.getElementById("name").value;
+    let status=document.getElementById("status").value;
+
+    if(name==""){
+        alert("enter student name:");
+        return;
     }
 
-    let note = document.createElement("div");
-    note.className = "note";
+    document.getElementById("list").innerHTML+=
+    "<div class='student'>"+name+"-"+ status + "<\div>";
 
-    note.innerHTML = "<span>" + text + "</span>" +
-        '<button onclick="deleteNote(this)">Delete</button>' +
-        '<button onclick="editNote(this)">Edit</button>';
+    if(status=="Present")
+        present++;
+    else
+        absent++;
+    document.getElementById("count").innerHTML=
+    "present:"+present+"|absent:"+absent;
 
-    document.getElementById("notes").appendChild(note);
-
-    
-    document.getElementById("note").value = "";
+    document.getElementById("name").value="";
 }
-
-function editNote(btn) {
-    let span = btn.parentElement.querySelector("span");
-
-    let text = prompt("Edit note:", span.textContent);
-
-    if (text !== null && text !== "") {
-        span.textContent = text;
-    }
-}
-
-function deleteNote(btn) {
-    btn.parentElement.remove();
-}
-

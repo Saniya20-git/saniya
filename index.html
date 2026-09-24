@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>notes manager</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>student attendence tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>my notes manager</h1>
-        <p>create and manage your notes</p>
-    </header>
+    <h1>student attendence</h1>
     <div class="content">
-        <h2>add a note</h2>
-        <input id="note" placeholder="enter your note">
-        <button onclick="addNote()">Add Note</button>
-        <h2>my notes</h2>
-        <div id="notes"></div>
+        <input id="name" placeholder="enter student name">
+        <select id="status">
+            <option value="present">present</option>
+            <option value="absent">absent</option>
+        </select>
+        <button onclick="markAttendance()">Mark Attendence</button>
+        <h2>Attendance</h2>
+        <div id="list"></div>
+        <p id="count"></p>
     </div>
     <script src="script.js"></script>
 </body>
